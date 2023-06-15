@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import css from './FormPhonebook.module.css';
 import { nanoid } from 'nanoid';
 
 export class FormPhonebook extends Component {
@@ -33,10 +34,11 @@ export class FormPhonebook extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form className={css.form_container} onSubmit={this.handleSubmit}>
+        <label className={css.form_label}>
           Name
           <input
+            className={css.form_input}
             type="text"
             name="name"
             value={this.state.name}
@@ -46,14 +48,15 @@ export class FormPhonebook extends Component {
             required
           />
         </label>
-        <label>
+        <label className={css.form_label}>
           Number
           <input
+            className={css.form_input}
             type="tel"
             name="number"
             value={this.state.number}
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             onChange={this.handleInput}
             required
           />

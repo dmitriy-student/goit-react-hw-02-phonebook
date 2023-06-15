@@ -1,11 +1,19 @@
-// import css from './Contacts.module.css';
+import css from './Contacts.module.css';
 
-export const Contacts = ({ contacts }) => {
+export const Contacts = ({ contacts, onClick }) => {
   return (
-    <ul>
+    <ul className={css.contacts_list}>
       {contacts.map(({ id, name, number }) => (
-        <li key={id}>
+        <li className={css.contacts_item} key={id}>
           {name}: {number}
+          <button
+            className={css.contacts_btn}
+            onClick={() => {
+              onClick(id);
+            }}
+          >
+            Delete
+          </button>
         </li>
       ))}
     </ul>
