@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import css from './App.module.css';
 import { Section } from 'components/Section/Section';
@@ -16,8 +15,6 @@ export class App extends Component {
     ],
     filter: '',
   };
-
-  // static propTypes = {};
 
   formSubmit = data => {
     const { contacts } = this.state;

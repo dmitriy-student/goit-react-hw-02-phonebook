@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './FormPhonebook.module.css';
 import { nanoid } from 'nanoid';
 
@@ -8,6 +9,8 @@ export class FormPhonebook extends Component {
     name: '',
     number: '',
   };
+
+  static propTypes = { formSubmit: PropTypes.func.isRequired };
 
   handleInput = e => {
     const { name, value } = e.currentTarget;

@@ -1,4 +1,5 @@
 import css from './Contacts.module.css';
+import PropTypes from 'prop-types';
 
 export const Contacts = ({ contacts, onClick }) => {
   return (
@@ -18,4 +19,15 @@ export const Contacts = ({ contacts, onClick }) => {
       ))}
     </ul>
   );
+};
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onClick: PropTypes.func.isRequired,
 };
